@@ -4,27 +4,26 @@
 Considere que o funcionário deve receber um reajuste de 15% caso seu salário seja menor que 800 reais. Se o salário for maior ou igual a 
 800 e menor ou igual a 1000, seu reajuste será de 10 %; caso seja maior que 1000, o reajuste deve ser de 5%. Exiba na função main o salário antigo e novo salário obtido na função.*/
 
-float sal, nsal;
 
-int ReajSalNovo(){
 
-  if(sal < 800){
-    nsal = (sal * 0.15) + sal;
+int ReajSalNovo(float novosal){
 
-    printf("Salário atual: %.2f\n(Menor que 800, ajuste de 15%%)\nNovo salário: %.2f", sal, nsal);
-  } else if(sal >= 800 && sal < 1000){
-    nsal = (sal * 0.10) + sal;
-
-    printf("Salário atual: %.2f\n(Entre 800 e 1000, ajuste de 10%%)\nNovo salário: %.2f", sal, nsal);
-
-  } else if(sal >= 1000){
-    nsal = (sal * 0.05) + sal;
-
-    printf("Salário atual: %.2f\n(Maior ou igual a 1000, ajuste de 5%%)\nNovo salário: %.2f", sal, nsal);
+ if(novosal < 800){
+      novosal = novosal*0.15 + novosal;
+      printf("Seu novo salario é %.2f", novosal);
+  } else if(novosal >= 800 && novosal <= 1000){
+      novosal = novosal*0.10 + novosal;
+      printf("Seu novo salario é %.2f", novosal);
+  } else {
+      novosal = novosal*0.05 + novosal;
+      printf("Seu novo salario é %.2f", novosal);
   }
-  return 0;
+
+  return novosal;
 }
 int main(){
+
+  float sal;
   
   do{
   printf("Digite abaixo o seu salário:\n");
@@ -35,7 +34,6 @@ int main(){
     }
   } while(sal <= 0);
 
-  if(sal > 0){
-  ReajSalNovo();
-  }
+  ReajSalNovo(sal);
+  
 }
